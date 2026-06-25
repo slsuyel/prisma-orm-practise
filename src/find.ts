@@ -12,8 +12,8 @@ const prisma = new PrismaClient({ adapter });
 async function main() {
   console.log("prisma running ");
 
-  //   const getAllPostFromDb = await prisma.post.findMany();
-  //   console.log(getAllPostFromDb);
+  const getAllPostFromDb = await prisma.post.findMany();
+  console.log(getAllPostFromDb);
 
   //   const findFirst = await prisma.post.findFirst({
   //     where: {

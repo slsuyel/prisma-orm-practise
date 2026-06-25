@@ -11,15 +11,6 @@ const prisma = new PrismaClient({ adapter });
 
 async function main() {
   console.log("prisma running ");
-  //   const result = await prisma.post.create({
-  //     data: {
-  //       title: "Post 3",
-  //       content: "Content 1",
-  //       published: true,
-  //       authorName: "John Doe",
-  //     },
-  //   });
-  //   console.log(result);
 }
 
 main();

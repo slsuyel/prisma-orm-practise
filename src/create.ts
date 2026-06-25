@@ -21,27 +21,15 @@ async function main() {
   //   });
   //   console.log(result);
 
+  const posts = Array.from({ length: 100 }, (_, i) => ({
+    title: `Post ${i + 1}`,
+    content: `Content for Post ${i + 1}`,
+    published: (i + 1) % 2 === 0,
+    authorName: `Author ${i + 1}`,
+  }));
+
   const createManyPost = await prisma.post.createMany({
-    data: [
-      {
-        title: "Post 1",
-        content: "Content 1",
-        published: true,
-        authorName: "John Doe",
-      },
-      {
-        title: "Post 2",
-        content: "Content 2",
-        published: true,
-        authorName: "John Doe",
-      },
-      {
-        title: "Post 3",
-        content: "Content 3",
-        published: true,
-        authorName: "John Doe",
-      },
-    ],
+    data: posts,
   });
   console.log(createManyPost);
 }
