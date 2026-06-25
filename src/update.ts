@@ -55,15 +55,30 @@ async function main() {
   // console.log("Upserted post:", upsertedPost);
 
   // 3. Update multiple posts matching a condition
-  const updateManyResult = await prisma.post.updateMany({
+  // const updateManyResult = await prisma.post.updateMany({
+  //   where: {
+  //     title: "Post 2",
+  //   },
+  //   data: {
+  //     published: true,
+  //   },
+  // });
+  // console.log("Updated many posts result:", updateManyResult);
+
+  const upsertData = await prisma.post.upsert({
     where: {
-      title: "Post 2",
+      id: 17,
     },
-    data: {
-      published: true,
+    update: {
+      authorName: "Suyel haque",
+    },
+    create: {
+      title: "Title 2",
+      content: "content 2",
     },
   });
-  console.log("Updated many posts result:", updateManyResult);
+
+  console.log(upsertData);
 }
 
 main();
