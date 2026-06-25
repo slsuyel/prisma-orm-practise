@@ -11,12 +11,30 @@ const prisma = new PrismaClient({ adapter });
 
 async function main() {
   console.log("prisma running ");
+
+  //   const getAllPostFromDb = await prisma.post.findMany();
+  //   console.log(getAllPostFromDb);
+
+  //   const findFirst = await prisma.post.findFirst({
+  //     where: {
+  //       title: "Post 2",
+  //     },
+  //   });
+  //   console.log(findFirst);
+
+  //   const findFirstAndThenThrow = await prisma.post.findFirstOrThrow({
+  //     where: {
+  //       title: "Post 2",
+  //     },
+  //   });
+  //   console.log(findFirstAndThenThrow);
+
   const getSInglePost = await prisma.post.findUnique({
     where: {
       id: 1,
     },
   });
-  console.log(getSInglePost);
+  // console.log(getSInglePost);
 }
 
 main();
