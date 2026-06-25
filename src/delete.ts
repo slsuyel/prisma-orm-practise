@@ -11,15 +11,17 @@ const prisma = new PrismaClient({ adapter });
 
 async function main() {
   console.log("prisma running ");
-  //   const result = await prisma.post.create({
-  //     data: {
-  //       title: "Post 3",
-  //       content: "Content 1",
-  //       published: true,
-  //       authorName: "John Doe",
-  //     },
-  //   });
-  //   console.log(result);
+
+  // Delete a single post
+  const deletedPost = await prisma.post.delete({
+    where: {
+      id: 1,
+    },
+  });
+  console.log("Deleted post:", deletedPost);
+
+  // const deleteResult = await prisma.post.deleteMany();
+  // console.log("Deleted all posts:", deleteResult);
 }
 
 main();

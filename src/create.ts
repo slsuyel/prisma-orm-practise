@@ -20,6 +20,30 @@ async function main() {
   //     },
   //   });
   //   console.log(result);
+
+  const createManyPost = await prisma.post.createMany({
+    data: [
+      {
+        title: "Post 1",
+        content: "Content 1",
+        published: true,
+        authorName: "John Doe",
+      },
+      {
+        title: "Post 2",
+        content: "Content 2",
+        published: true,
+        authorName: "John Doe",
+      },
+      {
+        title: "Post 3",
+        content: "Content 3",
+        published: true,
+        authorName: "John Doe",
+      },
+    ],
+  });
+  console.log(createManyPost);
 }
 
 main();
